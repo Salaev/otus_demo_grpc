@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "ru.otus.grpc.demo";
+
+package demo;
+
+service ExampleApi {
+  rpc currentTime (ExampleMessageRequest) returns (ExampleMessageResponse) {}
+}
+
+message ExampleMessageRequest {
+  string stringExample = 1;
+  int32 int32Example = 2;
+  int64 int64 = 3;
+  double doubleExample = 4;
+  float floatExample = 5;
+  bool boolExample = 6;
+  bytes bytesExample = 7;
+}
+
+message ExampleMessageResponse {
+  google.protobuf.Timestamp time = 1;
+}
